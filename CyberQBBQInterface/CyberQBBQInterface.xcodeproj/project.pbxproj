@@ -1,0 +1,534 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2F667C961EA6979A002D9D75 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F667C951EA6979A002D9D75 /* AppDelegate.swift */; };
+		2F667C981EA6979A002D9D75 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F667C971EA6979A002D9D75 /* ViewController.swift */; };
+		2F667C9A1EA6979A002D9D75 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F667C991EA6979A002D9D75 /* Assets.xcassets */; };
+		2F667C9D1EA6979A002D9D75 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F667C9B1EA6979A002D9D75 /* Main.storyboard */; };
+		2F667CA81EA6979A002D9D75 /* CyberQBBQInterfaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F667CA71EA6979A002D9D75 /* CyberQBBQInterfaceTests.swift */; };
+		2F667CB31EA6979A002D9D75 /* CyberQBBQInterfaceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F667CB21EA6979A002D9D75 /* CyberQBBQInterfaceUITests.swift */; };
+		2F667CC11EA697DE002D9D75 /* CyberQInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F667CC01EA697DE002D9D75 /* CyberQInterface.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2F667CA41EA6979A002D9D75 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2F667C8A1EA6979A002D9D75 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2F667C911EA6979A002D9D75;
+			remoteInfo = CyberQBBQInterface;
+		};
+		2F667CAF1EA6979A002D9D75 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2F667C8A1EA6979A002D9D75 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2F667C911EA6979A002D9D75;
+			remoteInfo = CyberQBBQInterface;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2F667C921EA6979A002D9D75 /* CyberQBBQInterface.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CyberQBBQInterface.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F667C951EA6979A002D9D75 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2F667C971EA6979A002D9D75 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2F667C991EA6979A002D9D75 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2F667C9C1EA6979A002D9D75 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2F667C9E1EA6979A002D9D75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2F667CA31EA6979A002D9D75 /* CyberQBBQInterfaceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CyberQBBQInterfaceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F667CA71EA6979A002D9D75 /* CyberQBBQInterfaceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CyberQBBQInterfaceTests.swift; sourceTree = "<group>"; };
+		2F667CA91EA6979A002D9D75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2F667CAE1EA6979A002D9D75 /* CyberQBBQInterfaceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CyberQBBQInterfaceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F667CB21EA6979A002D9D75 /* CyberQBBQInterfaceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CyberQBBQInterfaceUITests.swift; sourceTree = "<group>"; };
+		2F667CB41EA6979A002D9D75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2F667CC01EA697DE002D9D75 /* CyberQInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CyberQInterface.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2F667C8F1EA6979A002D9D75 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2F667CA01EA6979A002D9D75 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2F667CAB1EA6979A002D9D75 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2F667C891EA6979A002D9D75 = {
+			isa = PBXGroup;
+			children = (
+				2F667C941EA6979A002D9D75 /* CyberQBBQInterface */,
+				2F667CA61EA6979A002D9D75 /* CyberQBBQInterfaceTests */,
+				2F667CB11EA6979A002D9D75 /* CyberQBBQInterfaceUITests */,
+				2F667C931EA6979A002D9D75 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2F667C931EA6979A002D9D75 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2F667C921EA6979A002D9D75 /* CyberQBBQInterface.app */,
+				2F667CA31EA6979A002D9D75 /* CyberQBBQInterfaceTests.xctest */,
+				2F667CAE1EA6979A002D9D75 /* CyberQBBQInterfaceUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2F667C941EA6979A002D9D75 /* CyberQBBQInterface */ = {
+			isa = PBXGroup;
+			children = (
+				2F667C951EA6979A002D9D75 /* AppDelegate.swift */,
+				2F667C971EA6979A002D9D75 /* ViewController.swift */,
+				2F667C991EA6979A002D9D75 /* Assets.xcassets */,
+				2F667C9B1EA6979A002D9D75 /* Main.storyboard */,
+				2F667C9E1EA6979A002D9D75 /* Info.plist */,
+				2F667CC01EA697DE002D9D75 /* CyberQInterface.swift */,
+			);
+			path = CyberQBBQInterface;
+			sourceTree = "<group>";
+		};
+		2F667CA61EA6979A002D9D75 /* CyberQBBQInterfaceTests */ = {
+			isa = PBXGroup;
+			children = (
+				2F667CA71EA6979A002D9D75 /* CyberQBBQInterfaceTests.swift */,
+				2F667CA91EA6979A002D9D75 /* Info.plist */,
+			);
+			path = CyberQBBQInterfaceTests;
+			sourceTree = "<group>";
+		};
+		2F667CB11EA6979A002D9D75 /* CyberQBBQInterfaceUITests */ = {
+			isa = PBXGroup;
+			children = (
+				2F667CB21EA6979A002D9D75 /* CyberQBBQInterfaceUITests.swift */,
+				2F667CB41EA6979A002D9D75 /* Info.plist */,
+			);
+			path = CyberQBBQInterfaceUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2F667C911EA6979A002D9D75 /* CyberQBBQInterface */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2F667CB71EA6979A002D9D75 /* Build configuration list for PBXNativeTarget "CyberQBBQInterface" */;
+			buildPhases = (
+				2F667C8E1EA6979A002D9D75 /* Sources */,
+				2F667C8F1EA6979A002D9D75 /* Frameworks */,
+				2F667C901EA6979A002D9D75 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CyberQBBQInterface;
+			productName = CyberQBBQInterface;
+			productReference = 2F667C921EA6979A002D9D75 /* CyberQBBQInterface.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2F667CA21EA6979A002D9D75 /* CyberQBBQInterfaceTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2F667CBA1EA6979A002D9D75 /* Build configuration list for PBXNativeTarget "CyberQBBQInterfaceTests" */;
+			buildPhases = (
+				2F667C9F1EA6979A002D9D75 /* Sources */,
+				2F667CA01EA6979A002D9D75 /* Frameworks */,
+				2F667CA11EA6979A002D9D75 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2F667CA51EA6979A002D9D75 /* PBXTargetDependency */,
+			);
+			name = CyberQBBQInterfaceTests;
+			productName = CyberQBBQInterfaceTests;
+			productReference = 2F667CA31EA6979A002D9D75 /* CyberQBBQInterfaceTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		2F667CAD1EA6979A002D9D75 /* CyberQBBQInterfaceUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2F667CBD1EA6979A002D9D75 /* Build configuration list for PBXNativeTarget "CyberQBBQInterfaceUITests" */;
+			buildPhases = (
+				2F667CAA1EA6979A002D9D75 /* Sources */,
+				2F667CAB1EA6979A002D9D75 /* Frameworks */,
+				2F667CAC1EA6979A002D9D75 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2F667CB01EA6979A002D9D75 /* PBXTargetDependency */,
+			);
+			name = CyberQBBQInterfaceUITests;
+			productName = CyberQBBQInterfaceUITests;
+			productReference = 2F667CAE1EA6979A002D9D75 /* CyberQBBQInterfaceUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2F667C8A1EA6979A002D9D75 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "Raphael Brunner";
+				TargetAttributes = {
+					2F667C911EA6979A002D9D75 = {
+						CreatedOnToolsVersion = 8.3.1;
+						DevelopmentTeam = WSJ5T79UYZ;
+						ProvisioningStyle = Automatic;
+					};
+					2F667CA21EA6979A002D9D75 = {
+						CreatedOnToolsVersion = 8.3.1;
+						DevelopmentTeam = WSJ5T79UYZ;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 2F667C911EA6979A002D9D75;
+					};
+					2F667CAD1EA6979A002D9D75 = {
+						CreatedOnToolsVersion = 8.3.1;
+						DevelopmentTeam = WSJ5T79UYZ;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 2F667C911EA6979A002D9D75;
+					};
+				};
+			};
+			buildConfigurationList = 2F667C8D1EA6979A002D9D75 /* Build configuration list for PBXProject "CyberQBBQInterface" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2F667C891EA6979A002D9D75;
+			productRefGroup = 2F667C931EA6979A002D9D75 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2F667C911EA6979A002D9D75 /* CyberQBBQInterface */,
+				2F667CA21EA6979A002D9D75 /* CyberQBBQInterfaceTests */,
+				2F667CAD1EA6979A002D9D75 /* CyberQBBQInterfaceUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2F667C901EA6979A002D9D75 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F667C9A1EA6979A002D9D75 /* Assets.xcassets in Resources */,
+				2F667C9D1EA6979A002D9D75 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2F667CA11EA6979A002D9D75 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2F667CAC1EA6979A002D9D75 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2F667C8E1EA6979A002D9D75 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F667C981EA6979A002D9D75 /* ViewController.swift in Sources */,
+				2F667CC11EA697DE002D9D75 /* CyberQInterface.swift in Sources */,
+				2F667C961EA6979A002D9D75 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2F667C9F1EA6979A002D9D75 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F667CA81EA6979A002D9D75 /* CyberQBBQInterfaceTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2F667CAA1EA6979A002D9D75 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F667CB31EA6979A002D9D75 /* CyberQBBQInterfaceUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2F667CA51EA6979A002D9D75 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2F667C911EA6979A002D9D75 /* CyberQBBQInterface */;
+			targetProxy = 2F667CA41EA6979A002D9D75 /* PBXContainerItemProxy */;
+		};
+		2F667CB01EA6979A002D9D75 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2F667C911EA6979A002D9D75 /* CyberQBBQInterface */;
+			targetProxy = 2F667CAF1EA6979A002D9D75 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2F667C9B1EA6979A002D9D75 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2F667C9C1EA6979A002D9D75 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2F667CB51EA6979A002D9D75 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2F667CB61EA6979A002D9D75 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+			};
+			name = Release;
+		};
+		2F667CB81EA6979A002D9D75 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = WSJ5T79UYZ;
+				INFOPLIST_FILE = CyberQBBQInterface/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ch.raphael.cmlt.CyberQBBQInterface;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		2F667CB91EA6979A002D9D75 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = WSJ5T79UYZ;
+				INFOPLIST_FILE = CyberQBBQInterface/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ch.raphael.cmlt.CyberQBBQInterface;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		2F667CBB1EA6979A002D9D75 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = WSJ5T79UYZ;
+				INFOPLIST_FILE = CyberQBBQInterfaceTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ch.raphael.cmlt.CyberQBBQInterfaceTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CyberQBBQInterface.app/Contents/MacOS/CyberQBBQInterface";
+			};
+			name = Debug;
+		};
+		2F667CBC1EA6979A002D9D75 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = WSJ5T79UYZ;
+				INFOPLIST_FILE = CyberQBBQInterfaceTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ch.raphael.cmlt.CyberQBBQInterfaceTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CyberQBBQInterface.app/Contents/MacOS/CyberQBBQInterface";
+			};
+			name = Release;
+		};
+		2F667CBE1EA6979A002D9D75 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = WSJ5T79UYZ;
+				INFOPLIST_FILE = CyberQBBQInterfaceUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ch.raphael.cmlt.CyberQBBQInterfaceUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = CyberQBBQInterface;
+			};
+			name = Debug;
+		};
+		2F667CBF1EA6979A002D9D75 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = WSJ5T79UYZ;
+				INFOPLIST_FILE = CyberQBBQInterfaceUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ch.raphael.cmlt.CyberQBBQInterfaceUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = CyberQBBQInterface;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2F667C8D1EA6979A002D9D75 /* Build configuration list for PBXProject "CyberQBBQInterface" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2F667CB51EA6979A002D9D75 /* Debug */,
+				2F667CB61EA6979A002D9D75 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2F667CB71EA6979A002D9D75 /* Build configuration list for PBXNativeTarget "CyberQBBQInterface" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2F667CB81EA6979A002D9D75 /* Debug */,
+				2F667CB91EA6979A002D9D75 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		2F667CBA1EA6979A002D9D75 /* Build configuration list for PBXNativeTarget "CyberQBBQInterfaceTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2F667CBB1EA6979A002D9D75 /* Debug */,
+				2F667CBC1EA6979A002D9D75 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		2F667CBD1EA6979A002D9D75 /* Build configuration list for PBXNativeTarget "CyberQBBQInterfaceUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2F667CBE1EA6979A002D9D75 /* Debug */,
+				2F667CBF1EA6979A002D9D75 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2F667C8A1EA6979A002D9D75 /* Project object */;
+}
