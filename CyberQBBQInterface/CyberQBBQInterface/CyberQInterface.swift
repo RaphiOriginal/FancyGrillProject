@@ -26,29 +26,26 @@ class CyberQInterface {
         print(self.all.absoluteString)
     }
     
-    func getAllXml () -> String {
+    func getAllXml () -> String? {
+        return getXml(url: all)
+    }
+    
+    func getStatusXml () -> String? {
+        return getXml(url: status)
+    }
+    
+    func getConfigXml () -> String? {
+        return getXml(url: config)
+    }
+    
+    func getXml(url:URL) -> String? {
         do {
-            return try String(contentsOf: all)
+            return try String(contentsOf: url)
         } catch {
-            return "Error"
+            return nil
         }
     }
     
-    func getStatusXml () -> String {
-        do {
-            return try String(contentsOf: status)
-        } catch {
-            return "Error"
-        }
-    }
-    
-    func getConfigXml () -> String {
-        do {
-            return try String(contentsOf: config)
-        } catch {
-            return "Error"
-        }
-    }
     
     
     

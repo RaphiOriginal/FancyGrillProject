@@ -14,6 +14,10 @@
 		2F667CA81EA6979A002D9D75 /* CyberQBBQInterfaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F667CA71EA6979A002D9D75 /* CyberQBBQInterfaceTests.swift */; };
 		2F667CB31EA6979A002D9D75 /* CyberQBBQInterfaceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F667CB21EA6979A002D9D75 /* CyberQBBQInterfaceUITests.swift */; };
 		2F667CC11EA697DE002D9D75 /* CyberQInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F667CC01EA697DE002D9D75 /* CyberQInterface.swift */; };
+		2F667CC31EA6BA0F002D9D75 /* SWXMLHash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F667CC21EA6BA0F002D9D75 /* SWXMLHash.swift */; };
+		2F667CC51EA6CAE4002D9D75 /* XMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F667CC41EA6CAE4002D9D75 /* XMLParser.swift */; };
+		2F667CC71EA6CF65002D9D75 /* DegreeStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F667CC61EA6CF65002D9D75 /* DegreeStrategy.swift */; };
+		2FFF0DCA1EA7537200D2ABFD /* RepresentationObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFF0DC91EA7537200D2ABFD /* RepresentationObjects.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +51,10 @@
 		2F667CB21EA6979A002D9D75 /* CyberQBBQInterfaceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CyberQBBQInterfaceUITests.swift; sourceTree = "<group>"; };
 		2F667CB41EA6979A002D9D75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2F667CC01EA697DE002D9D75 /* CyberQInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CyberQInterface.swift; sourceTree = "<group>"; };
+		2F667CC21EA6BA0F002D9D75 /* SWXMLHash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SWXMLHash.swift; path = "../../../../../Downloads/SWXMLHash-3.0.4/Source/SWXMLHash.swift"; sourceTree = "<group>"; };
+		2F667CC41EA6CAE4002D9D75 /* XMLParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMLParser.swift; sourceTree = "<group>"; };
+		2F667CC61EA6CF65002D9D75 /* DegreeStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DegreeStrategy.swift; sourceTree = "<group>"; };
+		2FFF0DC91EA7537200D2ABFD /* RepresentationObjects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepresentationObjects.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,11 +106,15 @@
 			isa = PBXGroup;
 			children = (
 				2F667C951EA6979A002D9D75 /* AppDelegate.swift */,
+				2F667CC21EA6BA0F002D9D75 /* SWXMLHash.swift */,
 				2F667C971EA6979A002D9D75 /* ViewController.swift */,
 				2F667C991EA6979A002D9D75 /* Assets.xcassets */,
 				2F667C9B1EA6979A002D9D75 /* Main.storyboard */,
 				2F667C9E1EA6979A002D9D75 /* Info.plist */,
 				2F667CC01EA697DE002D9D75 /* CyberQInterface.swift */,
+				2F667CC41EA6CAE4002D9D75 /* XMLParser.swift */,
+				2FFF0DC91EA7537200D2ABFD /* RepresentationObjects.swift */,
+				2F667CC61EA6CF65002D9D75 /* DegreeStrategy.swift */,
 			);
 			path = CyberQBBQInterface;
 			sourceTree = "<group>";
@@ -261,9 +273,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F667CC71EA6CF65002D9D75 /* DegreeStrategy.swift in Sources */,
 				2F667C981EA6979A002D9D75 /* ViewController.swift in Sources */,
+				2F667CC31EA6BA0F002D9D75 /* SWXMLHash.swift in Sources */,
 				2F667CC11EA697DE002D9D75 /* CyberQInterface.swift in Sources */,
 				2F667C961EA6979A002D9D75 /* AppDelegate.swift in Sources */,
+				2FFF0DCA1EA7537200D2ABFD /* RepresentationObjects.swift in Sources */,
+				2F667CC51EA6CAE4002D9D75 /* XMLParser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -511,6 +527,7 @@
 				2F667CB91EA6979A002D9D75 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2F667CBA1EA6979A002D9D75 /* Build configuration list for PBXNativeTarget "CyberQBBQInterfaceTests" */ = {
 			isa = XCConfigurationList;
@@ -519,6 +536,7 @@
 				2F667CBC1EA6979A002D9D75 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2F667CBD1EA6979A002D9D75 /* Build configuration list for PBXNativeTarget "CyberQBBQInterfaceUITests" */ = {
 			isa = XCConfigurationList;
@@ -527,6 +545,7 @@
 				2F667CBF1EA6979A002D9D75 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
