@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Alamofire
 
 class CyberQInterface {
     
@@ -47,7 +48,7 @@ class CyberQInterface {
     }
     
     func testAlamofire() {
-    
+        Alamofire.request(URL(string: host)!, method: .post, parameters: ["CYCTIME": 20])
     }
     
     

@@ -30,9 +30,23 @@ class ViewController: NSViewController {
     let strategy:DegreeStrategy = CelsiusStrategy()
     
     let testIP:String = "192.168.254.123"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        var timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
+            self?.updateView()
+        }
+        
+        CyberQInterface(host: testIP).testAlamofire()
+    }
 
+    override var representedObject: Any? {
+        didSet {
+            
+        }
+    }
+    
+    func updateView() {
         let cqInterface = CyberQInterface(host: testIP)
         
         let test = XMLParser()
@@ -55,12 +69,7 @@ class ViewController: NSViewController {
         cookRamp.stringValue = String(status.cookRamp)
         fan.stringValue = String(status.fan)
         
-    }
-
-    override var representedObject: Any? {
-        didSet {
-            
-        }
+        
     }
 
     
