@@ -46,6 +46,10 @@ class CyberQInterface {
         }
     }
     
+    func testAlamofire() {
+    
+    }
+    
     
     
     
