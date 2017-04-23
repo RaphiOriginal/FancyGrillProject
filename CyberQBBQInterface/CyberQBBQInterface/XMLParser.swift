@@ -22,10 +22,10 @@ class XMLParser {
         status.food2Temp = getValue(value: "FOOD2_TEMP")
         status.food3Temp = getValue(value: "FOOD3_TEMP")
         status.cookStatus = getValue(value: "COOK_STATUS")
-        status.food1Status = getValue(value: "FOOD1_STATUS")!
-        status.food2Status = getValue(value: "FOOD2_STATUS")!
-        status.food3Status = getValue(value: "FOOD3_STATUS")!
-        status.timerStatus = getValue(value: "TIMER_STATUS")!
+        status.food1Status = getValue(value: "FOOD1_STATUS")
+        status.food2Status = getValue(value: "FOOD2_STATUS")
+        status.food3Status = getValue(value: "FOOD3_STATUS")
+        status.timerStatus = getValue(value: "TIMER_STATUS")
         status.degreeUnits = getValue(value: "DEG_UNITS")!
         status.cookCycTime = getValue(value: "COOK_CYCTIME")!
         status.cookProband = getValue(value: "COOK_PROPBAND")!
@@ -49,5 +49,14 @@ class XMLParser {
             }
         }
         return 0
+    }
+    
+    func getValue(value:String) -> Int {
+        if let val = xmlhash?["nutcstatus"][value].element?.text {
+            if let number = Int.init(val) {
+                return number
+            }
+        }
+        return 4 //This means Error for Status
     }
 }

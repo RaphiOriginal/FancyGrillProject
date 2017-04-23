@@ -58,11 +58,11 @@ class ViewController: NSViewController {
         food1.stringValue = String(strategy.getValue(rawValue: status.food1Temp))
         food2.stringValue = String(strategy.getValue(rawValue: status.food2Temp))
         food3.stringValue = String(strategy.getValue(rawValue: status.food3Temp))
-        cookStatus.stringValue = String(status.cookStatus)
-        food1Status.stringValue = String(status.food1Status)
-        food2Status.stringValue = String(status.food2Status)
-        food3Status.stringValue = String(status.food3Status)
-        timerStatus.stringValue = String(status.timerStatus)
+        cookStatus.stringValue = alarmValues[status.cookStatus]
+        food1Status.stringValue = alarmValues[status.food1Status]
+        food2Status.stringValue = alarmValues[status.food2Status]
+        food3Status.stringValue = alarmValues[status.food3Status]
+        timerStatus.stringValue = alarmValues[status.timerStatus]
         degUnits.stringValue = String(status.degreeUnits)
         cookCycTime.stringValue = String(status.cookCycTime)
         cookProband.stringValue = String(status.cookProband)
