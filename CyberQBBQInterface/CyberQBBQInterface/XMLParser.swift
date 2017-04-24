@@ -14,25 +14,18 @@ class XMLParser {
     
     func parseStatus(statusXML:String) -> StatusRepresentation {
         xmlhash = SWXMLHash.parse(statusXML)
-        let status = StatusRepresentation()
-        status.output = getValue(value: "OUTPUT_PERCENT")
-        status.timer = getValue(value: "TIMER_CURR")!
-        status.cookTemp = getValue(value: "COOK_TEMP")
-        status.food1Temp = getValue(value: "FOOD1_TEMP")
-        status.food2Temp = getValue(value: "FOOD2_TEMP")
-        status.food3Temp = getValue(value: "FOOD3_TEMP")
-        status.cookStatus = getValue(value: "COOK_STATUS")
-        status.food1Status = getValue(value: "FOOD1_STATUS")
-        status.food2Status = getValue(value: "FOOD2_STATUS")
-        status.food3Status = getValue(value: "FOOD3_STATUS")
-        status.timerStatus = getValue(value: "TIMER_STATUS")
-        status.degreeUnits = getValue(value: "DEG_UNITS")!
-        status.cookCycTime = getValue(value: "COOK_CYCTIME")!
-        status.cookProband = getValue(value: "COOK_PROPBAND")!
-        status.cookRamp = getValue(value: "COOK_RAMP")!
-        status.fan = getValue(value: "FAN_SHORTED")!
+        let output = Output(value: getValue(value: "OUTPUT_PERCENT"))
+        let timer = BBQTimer(curr: getValue(value: "TIMER_CURR")!, status: getValue(value: "TIMER_STATUS"))
+        let cook = CookShort(temp: getValue(value: "COOK_TEMP"), status: getValue(value: "COOK_STATUS"))
+        let food1 = FoodShort(temp: getValue(value: "FOOD1_TEMP"), status: getValue(value: "FOOD1_STATUS"))
+        let food2 = FoodShort(temp: getValue(value: "FOOD2_TEMP"), status: getValue(value: "FOOD2_STATUS"))
+        let food3 = FoodShort(temp: getValue(value: "FOOD3_TEMP"), status: getValue(value: "FOOD3_STATUS"))
+        let food = [food1, food2, food3]
+        let system = SystemShort(degUnits: getValue(value: "DEG_UNITS"))
+        let control = ControlShort(cookRamp: getValue(value: "COOK_RAMP"), cyctime: getValue(value: "COOK_CYCTIME"), proband: getValue(value: "COOK_PROPBAND"))
+        let fan = Fan(fan: getValue(value: "FAN_SHORTED")!)
         
-        return status
+        return StatusRepresentation(output: output, timer: timer, cook: cook, food: food, system: system, control: control, fan: fan)
     }
     
     func getValue(value:String) -> String? {

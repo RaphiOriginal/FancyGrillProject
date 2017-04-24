@@ -52,22 +52,22 @@ class ViewController: NSViewController {
         let test = XMLParser()
         let status = test.parseStatus(statusXML: cqInterface.getStatusXml()!)
         
-        output.stringValue = String(status.output) + "%"
-        timer.stringValue = status.timer
-        cookTemp.stringValue = String(strategy.getValue(rawValue: status.cookTemp))
-        food1.stringValue = String(strategy.getValue(rawValue: status.food1Temp))
-        food2.stringValue = String(strategy.getValue(rawValue: status.food2Temp))
-        food3.stringValue = String(strategy.getValue(rawValue: status.food3Temp))
-        cookStatus.stringValue = alarmValues[status.cookStatus]
-        food1Status.stringValue = alarmValues[status.food1Status]
-        food2Status.stringValue = alarmValues[status.food2Status]
-        food3Status.stringValue = alarmValues[status.food3Status]
-        timerStatus.stringValue = alarmValues[status.timerStatus]
-        degUnits.stringValue = String(status.degreeUnits)
-        cookCycTime.stringValue = String(status.cookCycTime)
-        cookProband.stringValue = String(status.cookProband)
-        cookRamp.stringValue = String(status.cookRamp)
-        fan.stringValue = String(status.fan)
+        output.stringValue = String(status.output.value) + "%"
+        timer.stringValue = status.timer.curr
+        cookTemp.stringValue = String(strategy.getValue(rawValue: (status.cook as! CookShort).temp))
+        food1.stringValue = String(strategy.getValue(rawValue: (status.food[0] as! FoodShort).temp))
+        food2.stringValue = String(strategy.getValue(rawValue: (status.food[1] as! FoodShort).temp))
+        food3.stringValue = String(strategy.getValue(rawValue: (status.food[2] as! FoodShort).temp))
+        cookStatus.stringValue = status.cook.printStatus()
+        food1Status.stringValue = status.food[0].printStatus()
+        food2Status.stringValue = status.food[1].printStatus()
+        food3Status.stringValue = status.food[2].printStatus()
+        timerStatus.stringValue = status.timer.printStatus()
+        degUnits.stringValue = String((status.system as! SystemShort).degUnits)
+        cookCycTime.stringValue = String((status.control as! ControlShort).cyctime)
+        cookProband.stringValue = String((status.control as! ControlShort).proband)
+        cookRamp.stringValue = String((status.control as! ControlShort).cookRamp)
+        fan.stringValue = String(status.fan.fan)
         
         
     }

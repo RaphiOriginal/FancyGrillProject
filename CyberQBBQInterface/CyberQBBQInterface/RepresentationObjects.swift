@@ -21,65 +21,232 @@ let possibleConfigurationParameters:[String] = ["COOK_NAME", "COOK_SET", "FOOD1_
 
 class StatusRepresentation {
     
-    var output:Int = 0
-    var timer:String = ""
-    var cookTemp:Double = 0
-    var food1Temp:Double = 0
-    var food2Temp:Double = 0
-    var food3Temp:Double = 0
-    var cookStatus:Int = 0
-    var food1Status:Int = 0
-    var food2Status:Int = 0
-    var food3Status:Int = 0
-    var timerStatus:Int = 0
-    var degreeUnits:String = ""
-    var cookCycTime:String = ""
-    var cookProband:String = ""
-    var cookRamp:String = ""
-    var fan:String = ""
+    var output:Output
+    var timer:BBQTimer
+    var cook:Cook
+    var food:[Food]
+    var system:System
+    var control:Control
+    var fan:Fan
+    
+    init(output:Output, timer:BBQTimer, cook:Cook, food:[Food], system:System, control:Control, fan:Fan) {
+        self.output = output
+        self.timer = timer
+        self.cook = cook
+        self.food = food
+        self.system = system
+        self.control = control
+        self.fan = fan
+    }
     
 }
 
-class Cook {
-    var name:String = "Cook"
-    var temp:Double = 0
-    var set:Int = 0
-    var status:AlarmValues = .ERROR
+class ConfigRepresentation {
+    var cook:CookLong
+    var food:[FoodLong]
+    var output:Output
+    var timer:BBQTimer
+    var system:SystemLong
+    var control:ControlLong
+    var wifi:Wifi
+    var stmp:Stmp
+    var software:Software
+    
+    init (cook:CookLong, food:[FoodLong], output:Output, timer:BBQTimer, system:SystemLong, control:ControlLong, wifi:Wifi, stmp:Stmp, software:Software) {
+        self.cook = cook
+        self.food = food
+        self.output = output
+        self.timer = timer
+        self.system = system
+        self.control = control
+        self.wifi = wifi
+        self.stmp = stmp
+        self.software = software
+    }
 }
 
-class Food {
-    var name:String = "Food"
-    var temp:Double = 0
-    var set:Int = 0
-    var status:AlarmValues = .ERROR
+class AllRepresentation {
+    var cook:Cook
+    var food:[Food]
+    var output:Output
+    var timer:BBQTimer
+    var system:System
+    var control:Control
+    
+    init(cook:CookLong, food:[FoodLong], output:Output, timer:BBQTimer, system:SystemShort, control:ControlShort) {
+        self.cook = cook
+        self.food = food
+        self.output = output
+        self.timer = timer
+        self.system = system
+        self.control = control
+    }
+}
+
+class Fan {
+    var fan:String
+    
+    init(fan:String){
+        self.fan = fan
+    }
+}
+
+protocol Status {
+    func printStatus() -> String
+}
+
+protocol Cook:Status {
+    
+}
+
+class CookShort:Cook {
+    var temp:Double
+    var status:AlarmValues
+    
+    init(temp:Double, status:Int){
+        self.temp = temp
+        if let stats = AlarmValues(rawValue: status) {
+            self.status = stats
+        } else {
+            self.status = .ERROR
+        }
+    }
+    
+    func printStatus() -> String {
+        return alarmValues[status.rawValue]
+    }
+}
+class CookLong:CookShort {
+    var name:String
+    var set:Int
+    
+    
+    
+    init(name:String, set:Int, status:Int, temp:Double) {
+        self.name = name
+        self.set = set
+        super.init(temp: temp, status: status)
+    }
+}
+
+protocol Food:Status {
+    
+}
+
+class FoodShort:Food {
+    var temp:Double
+    var status:AlarmValues
+    
+    init(temp:Double, status:Int){
+        self.temp = temp
+        if let stats = AlarmValues(rawValue: status) {
+            self.status = stats
+        } else {
+            self.status = .ERROR
+        }
+    }
+    
+    func printStatus() -> String {
+        return alarmValues[status.rawValue]
+    }
+}
+
+class FoodLong:FoodShort {
+    var name:String
+    var set:Int
+    
+    init(name:String, set:Int, status:Int, temp:Double) {
+        self.name = name
+        self.set = set
+        super.init(temp: temp, status: status)
+    }
 }
 
 class Output {
-    var value:Int = 0
+    var value:Int
+    
+    init(value:Int) {
+        self.value = value
+    }
 }
 
-class BBQTimer {
-    var curr:String = "00:00:00"
-    var status:AlarmValues = .ERROR
+class BBQTimer:Status {
+
+    var curr:String
+    var status:AlarmValues
+    
+    init(curr:String, status:Int) {
+        self.curr = curr
+        if let stats = AlarmValues(rawValue: status) {
+            self.status = stats
+        } else {
+            self.status = .ERROR
+        }
+    }
+    
+    func printStatus() -> String {
+        return alarmValues[status.rawValue]
+    }
 }
 
-class System {
-    var menuScrolling:Int = 0
-    var backlight:Int = 50
-    var contrast:Int = 10
-    var degUnits:Int = 0
-    var alarmBeeps:Int = 3
-    var keyBeeps:Int = 1
+protocol System {
+    
 }
 
-class Control {
+class SystemShort: System {
+    var degUnits:Int
+    
+    init(degUnits:Int){
+        self.degUnits = degUnits
+    }
+}
+
+class SystemLong: SystemShort {
+    var menuScrolling:Int
+    var backlight:Int
+    var contrast:Int
+    var alarmBeeps:Int
+    var keyBeeps:Int
+    
+    init(menuScrolling:Int, backlight:Int, contrast:Int, alarmBeeps:Int, keyBeeps:Int, degUnits:Int){
+        self.menuScrolling = menuScrolling
+        self.backlight = backlight
+        self.contrast = contrast
+        self.alarmBeeps = alarmBeeps
+        self.keyBeeps = keyBeeps
+        super.init(degUnits: degUnits)
+    }
+}
+
+protocol Control {
+    
+}
+
+class ControlShort:Control {
+    var cookRamp:Int
+    var cyctime:Int
+    var proband:Int
+    
+    init(cookRamp:Int, cyctime:Int, proband:Int){
+        self.cookRamp = cookRamp
+        self.cyctime = cyctime
+        self.proband = proband
+    }
+}
+
+class ControlLong:ControlShort {
     var timeout:Int = 0
     var cookhold:Int = 2000
     var alarmDev:Int = 500
-    var cookRamp:Int = 0
     var openDetect:Int = 1
-    var cyctime:Int = 6
-    var proband:Int = 300
+    
+    init(timeout:Int, cookhold:Int, alarmDev:Int, openDetect:Int, cookRamp:Int, cyctime:Int, proband:Int){
+        self.timeout = timeout
+        self.cookhold = cookhold
+        self.alarmDev = alarmDev
+        self.openDetect = openDetect
+        super.init(cookRamp: cookRamp, cyctime: cyctime, proband: proband)
+    }
 }
 
 class Wifi {
