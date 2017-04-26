@@ -27,6 +27,8 @@ class ViewController: NSViewController {
     @IBOutlet weak var cookRamp: NSTextField!
     @IBOutlet weak var fan: NSTextField!
     
+    var status:StatusRepresentation?
+    
     let strategy:DegreeStrategy = CelsiusStrategy()
     
     let testIP:String = "192.168.254.123"
@@ -50,24 +52,24 @@ class ViewController: NSViewController {
         let cqInterface = CyberQInterface(host: testIP)
         
         let test = XMLParser()
-        let status = test.parseStatus(statusXML: cqInterface.getStatusXml()!)
+        status = test.parseStatus(statusXML: cqInterface.getStatusXml()!, status: &status)
         
-        output.stringValue = String(status.output.value) + "%"
-        timer.stringValue = status.timer.curr
-        cookTemp.stringValue = String(strategy.getValue(rawValue: (status.cook as! CookShort).temp))
-        food1.stringValue = String(strategy.getValue(rawValue: (status.food[0] as! FoodShort).temp))
-        food2.stringValue = String(strategy.getValue(rawValue: (status.food[1] as! FoodShort).temp))
-        food3.stringValue = String(strategy.getValue(rawValue: (status.food[2] as! FoodShort).temp))
-        cookStatus.stringValue = status.cook.printStatus()
-        food1Status.stringValue = status.food[0].printStatus()
-        food2Status.stringValue = status.food[1].printStatus()
-        food3Status.stringValue = status.food[2].printStatus()
-        timerStatus.stringValue = status.timer.printStatus()
-        degUnits.stringValue = String((status.system as! SystemShort).degUnits)
-        cookCycTime.stringValue = String((status.control as! ControlShort).cyctime)
-        cookProband.stringValue = String((status.control as! ControlShort).proband)
-        cookRamp.stringValue = String((status.control as! ControlShort).cookRamp)
-        fan.stringValue = String(status.fan.fan)
+        output.stringValue = String((status?.output?.value)!) + "%"
+        timer.stringValue = (status?.timer?.curr)!
+        cookTemp.stringValue = String(strategy.getValue(rawValue: (status?.cook?.temp)!))
+        food1.stringValue = String(strategy.getValue(rawValue: (status?.food[0].temp)!))
+        food2.stringValue = String(strategy.getValue(rawValue: (status?.food[1].temp)!))
+        food3.stringValue = String(strategy.getValue(rawValue: (status?.food[2].temp)!))
+        cookStatus.stringValue = (status?.cook?.printStatus())!
+        food1Status.stringValue = (status?.food[0].printStatus())!
+        food2Status.stringValue = (status?.food[1].printStatus())!
+        food3Status.stringValue = (status?.food[2].printStatus())!
+        timerStatus.stringValue = (status?.timer?.printStatus())!
+        degUnits.stringValue = String((status?.system?.degUnits)!)
+        cookCycTime.stringValue = String((status?.control?.cyctime)!)
+        cookProband.stringValue = String((status?.control?.proband)!)
+        cookRamp.stringValue = String((status?.control?.cookRamp)!)
+        fan.stringValue = (status?.fan?.fan)!
         
         
     }

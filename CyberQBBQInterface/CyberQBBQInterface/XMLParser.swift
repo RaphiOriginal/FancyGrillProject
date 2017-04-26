@@ -12,20 +12,22 @@ class XMLParser {
     
     var xmlhash:XMLIndexer? = nil
     
-    func parseStatus(statusXML:String) -> StatusRepresentation {
+    func parseStatus(statusXML:String, status: inout StatusRepresentation?) -> StatusRepresentation {
+        if status == nil {
+            status = StatusRepresentation()
+        }
         xmlhash = SWXMLHash.parse(statusXML)
-        let output = Output(value: getValue(value: "OUTPUT_PERCENT"))
-        let timer = BBQTimer(curr: getValue(value: "TIMER_CURR")!, status: getValue(value: "TIMER_STATUS"))
-        let cook = CookShort(temp: getValue(value: "COOK_TEMP"), status: getValue(value: "COOK_STATUS"))
-        let food1 = FoodShort(temp: getValue(value: "FOOD1_TEMP"), status: getValue(value: "FOOD1_STATUS"))
-        let food2 = FoodShort(temp: getValue(value: "FOOD2_TEMP"), status: getValue(value: "FOOD2_STATUS"))
-        let food3 = FoodShort(temp: getValue(value: "FOOD3_TEMP"), status: getValue(value: "FOOD3_STATUS"))
-        let food = [food1, food2, food3]
-        let system = SystemShort(degUnits: getValue(value: "DEG_UNITS"))
-        let control = ControlShort(cookRamp: getValue(value: "COOK_RAMP"), cyctime: getValue(value: "COOK_CYCTIME"), proband: getValue(value: "COOK_PROPBAND"))
-        let fan = Fan(fan: getValue(value: "FAN_SHORTED")!)
+        status?.updateOutput(new: Output(value: getValue(value: "OUTPUT_PERCENT")))
+        status?.updateTimer(new: BBQTimer(curr: getValue(value: "TIMER_CURR")!, status: getValue(value: "TIMER_STATUS")))
+        status?.updateCook(new: StatusValues(temp: getValue(value: "COOK_TEMP"), status: getValue(value: "COOK_STATUS")))
+        status?.updateFood(new: StatusValues(temp: getValue(value: "FOOD1_TEMP"), status: getValue(value: "FOOD1_STATUS")), index: 0)
+        status?.updateFood(new: StatusValues(temp: getValue(value: "FOOD2_TEMP"), status: getValue(value: "FOOD2_STATUS")), index: 1)
+        status?.updateFood(new: StatusValues(temp: getValue(value: "FOOD3_TEMP"), status: getValue(value: "FOOD3_STATUS")), index: 2)
+        status?.updateSystem(new: System(degUnits: getValue(value: "DEG_UNITS")))
+        status?.updateControl(new: Control(cookRamp: getValue(value: "COOK_RAMP"), cyctime: getValue(value: "COOK_CYCTIME"), proband: getValue(value: "COOK_PROPBAND")))
+        status?.updateFan(new: Fan(fan: getValue(value: "FAN_SHORTED")!))
         
-        return StatusRepresentation(output: output, timer: timer, cook: cook, food: food, system: system, control: control, fan: fan)
+        return status!
     }
     
     func getValue(value:String) -> String? {

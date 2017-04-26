@@ -21,15 +21,15 @@ let possibleConfigurationParameters:[String] = ["COOK_NAME", "COOK_SET", "FOOD1_
 
 class StatusRepresentation {
     
-    var output:Output
-    var timer:BBQTimer
-    var cook:Cook
-    var food:[Food]
-    var system:System
-    var control:Control
-    var fan:Fan
+    var output:Output?
+    var timer:BBQTimer?
+    var cook:StatusValues?
+    var food:[StatusValues]
+    var system:System?
+    var control:Control?
+    var fan:Fan?
     
-    init(output:Output, timer:BBQTimer, cook:Cook, food:[Food], system:System, control:Control, fan:Fan) {
+    init(output:Output, timer:BBQTimer, cook:StatusValues, food:[StatusValues], system:System, control:Control, fan:Fan) {
         self.output = output
         self.timer = timer
         self.cook = cook
@@ -39,11 +39,77 @@ class StatusRepresentation {
         self.fan = fan
     }
     
+    init() {
+        food = []
+    }
+        
+    func updateOutput(new:Output){
+        if output != nil {
+            output!.update(new: new)
+        } else {
+            output = new
+        }
+    }
+    
+    func updateTimer(new:BBQTimer){
+        if timer != nil {
+            timer!.update(new: new)
+        } else {
+            timer = new
+        }
+    }
+    
+    func updateCook(new:StatusValues){
+        if cook != nil {
+            cook!.update(new: new)
+        } else {
+            cook = new
+        }
+    }
+    
+    func updateFood(new:StatusValues, index:Int){
+        if food.count >= 3 {
+            food[index].update(new: new)
+        } else {
+            food.append(new)
+        }
+    }
+    
+    func updateSystem(new:System){
+        if system != nil {
+            system!.update(new: new)
+        } else {
+            system = new
+        }
+    }
+    
+    func updateControl(new:Control){
+        if control != nil {
+            control!.update(new: new)
+        } else {
+            control = new
+        }
+    }
+    
+    func updateFan(new:Fan){
+        if fan != nil {
+            fan!.update(new: new)
+        } else {
+            fan = new
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
 }
 
 class ConfigRepresentation {
-    var cook:CookLong
-    var food:[FoodLong]
+    var cook:Cook
+    var food:[Food]
     var output:Output
     var timer:BBQTimer
     var system:SystemLong
@@ -52,7 +118,7 @@ class ConfigRepresentation {
     var stmp:Stmp
     var software:Software
     
-    init (cook:CookLong, food:[FoodLong], output:Output, timer:BBQTimer, system:SystemLong, control:ControlLong, wifi:Wifi, stmp:Stmp, software:Software) {
+    init (cook:Cook, food:[Food], output:Output, timer:BBQTimer, system:SystemLong, control:ControlLong, wifi:Wifi, stmp:Stmp, software:Software) {
         self.cook = cook
         self.food = food
         self.output = output
@@ -73,7 +139,7 @@ class AllRepresentation {
     var system:System
     var control:Control
     
-    init(cook:CookLong, food:[FoodLong], output:Output, timer:BBQTimer, system:SystemShort, control:ControlShort) {
+    init(cook:Cook, food:[Food], output:Output, timer:BBQTimer, system:System, control:Control) {
         self.cook = cook
         self.food = food
         self.output = output
@@ -83,11 +149,26 @@ class AllRepresentation {
     }
 }
 
+protocol Listener {
+    func listen(value:Any?)
+}
+
 class Fan {
-    var fan:String
+    var listener:Listener?
+    var fan:String? {
+        didSet {
+            if oldValue != fan {
+                listener?.listen(value: fan)
+            }
+        }
+    }
     
     init(fan:String){
         self.fan = fan
+    }
+    
+    func update(new:Fan){
+        fan = new.fan
     }
 }
 
@@ -95,13 +176,23 @@ protocol Status {
     func printStatus() -> String
 }
 
-protocol Cook:Status {
+class StatusValues:Status {
+    var listener:Listener?
     
-}
-
-class CookShort:Cook {
-    var temp:Double
-    var status:AlarmValues
+    var temp:Double {
+        didSet {
+            if oldValue != temp {
+                listener?.listen(value: temp)
+            }
+        }
+    }
+    var status:AlarmValues {
+        didSet {
+            if oldValue != status {
+                listener?.listen(value: status)
+            }
+        }
+    }
     
     init(temp:Double, status:Int){
         self.temp = temp
@@ -112,68 +203,114 @@ class CookShort:Cook {
         }
     }
     
+    func update(new:StatusValues){
+        temp = new.temp
+        status = new.status
+    }
+    
     func printStatus() -> String {
         return alarmValues[status.rawValue]
     }
 }
-class CookLong:CookShort {
-    var name:String
-    var set:Int
+
+class Cook:StatusValues {
     
-    
-    
-    init(name:String, set:Int, status:Int, temp:Double) {
-        self.name = name
-        self.set = set
-        super.init(temp: temp, status: status)
+    var name:String {
+        didSet {
+            if oldValue != name {
+                listener?.listen(value: name)
+            }
+        }
     }
-}
-
-protocol Food:Status {
-    
-}
-
-class FoodShort:Food {
-    var temp:Double
-    var status:AlarmValues
-    
-    init(temp:Double, status:Int){
-        self.temp = temp
-        if let stats = AlarmValues(rawValue: status) {
-            self.status = stats
-        } else {
-            self.status = .ERROR
+    var set:Int {
+        didSet {
+            if oldValue != set {
+                listener?.listen(value: set)
+            }
         }
     }
     
-    func printStatus() -> String {
-        return alarmValues[status.rawValue]
+    init(name:String, set:Int, status:Int, temp:Double) {
+        self.name = name
+        self.set = set
+        super.init(temp: temp, status: status)
+    }
+    
+    func update(new:Cook){
+        name = new.name
+        set = new.set
+        status = new.status
+        temp = new.temp
     }
 }
 
-class FoodLong:FoodShort {
-    var name:String
-    var set:Int
+class Food:StatusValues {
+    var name:String {
+        didSet {
+            if oldValue != name {
+                listener?.listen(value: name)
+            }
+        }
+    }
+    var set:Int {
+        didSet {
+            if oldValue != set {
+                listener?.listen(value: set)
+            }
+        }
+    }
     
     init(name:String, set:Int, status:Int, temp:Double) {
         self.name = name
         self.set = set
         super.init(temp: temp, status: status)
+    }
+    
+    func update(new:Food){
+        name = new.name
+        set = new.set
+        status = new.status
+        temp = new.temp
     }
 }
 
 class Output {
-    var value:Int
+    var listener:Listener?
+    
+    var value:Int {
+        didSet {
+            if oldValue != value {
+                listener?.listen(value: value)
+            }
+        }
+    }
     
     init(value:Int) {
         self.value = value
     }
+    
+    func update(new:Output) {
+        value = new.value
+    }
 }
 
 class BBQTimer:Status {
+    var listener:Listener?
 
-    var curr:String
-    var status:AlarmValues
+    var curr:String {
+        didSet {
+            if oldValue != curr {
+                listener?.listen(value: curr)
+            }
+        }
+    }
+    var status:AlarmValues {
+        didSet {
+            if oldValue != status {
+                listener?.listen(value: status)
+            }
+        }
+    }
     
     init(curr:String, status:Int) {
         self.curr = curr
@@ -184,24 +321,29 @@ class BBQTimer:Status {
         }
     }
     
+    func update(new:BBQTimer){
+        curr = new.curr
+        status = new.status
+    }
+    
     func printStatus() -> String {
         return alarmValues[status.rawValue]
     }
 }
 
-protocol System {
-    
-}
-
-class SystemShort: System {
+class System {
     var degUnits:Int
     
     init(degUnits:Int){
         self.degUnits = degUnits
     }
+    
+    func update(new:System) {
+        degUnits = new.degUnits
+    }
 }
 
-class SystemLong: SystemShort {
+class SystemLong: System {
     var menuScrolling:Int
     var backlight:Int
     var contrast:Int
@@ -216,13 +358,18 @@ class SystemLong: SystemShort {
         self.keyBeeps = keyBeeps
         super.init(degUnits: degUnits)
     }
-}
-
-protocol Control {
     
+    func update(new:SystemLong) {
+        degUnits = new.degUnits
+        menuScrolling = new.menuScrolling
+        backlight = new.backlight
+        contrast = new.contrast
+        alarmBeeps = new.alarmBeeps
+        keyBeeps = new.keyBeeps
+    }
 }
 
-class ControlShort:Control {
+class Control {
     var cookRamp:Int
     var cyctime:Int
     var proband:Int
@@ -232,9 +379,15 @@ class ControlShort:Control {
         self.cyctime = cyctime
         self.proband = proband
     }
+    
+    func update(new:Control) {
+        cookRamp = new.cookRamp
+        cyctime = new.cyctime
+        proband = new.proband
+    }
 }
 
-class ControlLong:ControlShort {
+class ControlLong:Control {
     var timeout:Int = 0
     var cookhold:Int = 2000
     var alarmDev:Int = 500
@@ -246,6 +399,16 @@ class ControlLong:ControlShort {
         self.alarmDev = alarmDev
         self.openDetect = openDetect
         super.init(cookRamp: cookRamp, cyctime: cyctime, proband: proband)
+    }
+    
+    func update(new:ControlLong) {
+        cookRamp = new.cookRamp
+        cyctime = new.cyctime
+        proband = new.proband
+        timeout = new.timeout
+        cookhold = new.cookhold
+        alarmDev = new.alarmDev
+        openDetect = new.openDetect
     }
 }
 
