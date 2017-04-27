@@ -38,8 +38,6 @@ class ViewController: NSViewController {
         var timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
             self?.updateView()
         }
-        
-        CyberQInterface(host: testIP).testAlamofire()
     }
 
     override var representedObject: Any? {
@@ -65,10 +63,10 @@ class ViewController: NSViewController {
         food2Status.stringValue = (status?.food[1].printStatus())!
         food3Status.stringValue = (status?.food[2].printStatus())!
         timerStatus.stringValue = (status?.timer?.printStatus())!
-        degUnits.stringValue = String((status?.system?.degUnits)!)
+        degUnits.stringValue = String((status?.system?.degUnits.rawValue)!)
         cookCycTime.stringValue = String((status?.control?.cyctime)!)
         cookProband.stringValue = String((status?.control?.proband)!)
-        cookRamp.stringValue = String((status?.control?.cookRamp)!)
+        cookRamp.stringValue = String((status?.control?.cookRamp.rawValue)!)
         fan.stringValue = (status?.fan?.fan)!
         
         
